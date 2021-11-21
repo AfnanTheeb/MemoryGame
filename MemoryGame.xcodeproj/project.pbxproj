@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4311CAF1274A5F23006DD513 /* ImagesCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311CAEF274A5F22006DD513 /* ImagesCards.swift */; };
+		4311CAF2274A5F23006DD513 /* ImagesCards.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4311CAF0274A5F23006DD513 /* ImagesCards.xib */; };
 		A2262E97274A322500959246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E96274A322500959246 /* AppDelegate.swift */; };
 		A2262E99274A322500959246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E98274A322500959246 /* SceneDelegate.swift */; };
 		A2262E9B274A322500959246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E9A274A322500959246 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4311CAEF274A5F22006DD513 /* ImagesCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCards.swift; sourceTree = "<group>"; };
+		4311CAF0274A5F23006DD513 /* ImagesCards.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesCards.xib; sourceTree = "<group>"; };
 		A2262E93274A322500959246 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2262E96274A322500959246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2262E98274A322500959246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				A2262E98274A322500959246 /* SceneDelegate.swift */,
 				A2262E9A274A322500959246 /* ViewController.swift */,
 				A2262E9C274A322500959246 /* Main.storyboard */,
+				4311CAEF274A5F22006DD513 /* ImagesCards.swift */,
+				4311CAF0274A5F23006DD513 /* ImagesCards.xib */,
 				A2262EA2274A322700959246 /* Assets.xcassets */,
 				A2262EA4274A322700959246 /* LaunchScreen.storyboard */,
 				A2262EA7274A322700959246 /* Info.plist */,
@@ -131,6 +137,7 @@
 				A2262EA6274A322700959246 /* LaunchScreen.storyboard in Resources */,
 				A2262EA3274A322700959246 /* Assets.xcassets in Resources */,
 				A2262E9E274A322500959246 /* Main.storyboard in Resources */,
+				4311CAF2274A5F23006DD513 /* ImagesCards.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,7 @@
 				A2262E97274A322500959246 /* AppDelegate.swift in Sources */,
 				A2262EA1274A322500959246 /* MemoryGame.xcdatamodeld in Sources */,
 				A2262E99274A322500959246 /* SceneDelegate.swift in Sources */,
+				4311CAF1274A5F23006DD513 /* ImagesCards.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
