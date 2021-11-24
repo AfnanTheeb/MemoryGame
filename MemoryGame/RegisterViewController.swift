@@ -1,13 +1,13 @@
 //
-//  homeViewController.swift
+//  RegisterViewController.swift
 //  MemoryGame
 //
-//  Created by نجود  on 18/04/1443 AH.
+//  Created by Afnan Theb on 19/04/1443 AH.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource  {
+class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource  {
         
     var imgeCardArr = [
         UIImage(named: "moon1"),

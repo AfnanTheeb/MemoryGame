@@ -7,7 +7,7 @@
 
 import UIKit
 
-class startGames: UIViewController {
+class StartGames: UIViewController {
 
     
     @IBAction func startBtn(_ sender: Any) {
