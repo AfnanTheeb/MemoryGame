@@ -10,24 +10,37 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardID" id="gTV-IL-0wX" customClass="ImagesCards" customModule="MemoryGame" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="98" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="98" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOl-HP-NkC">
-                        <rect key="frame" x="0.0" y="0.0" width="98" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOl-HP-NkC">
+                        <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMB-Mu-1MC">
+                        <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="98" height="70"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gOl-HP-NkC" secondAttribute="bottom" id="3KC-HH-KjY"/>
+                <constraint firstItem="eMB-Mu-1MC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6OV-gS-AIH"/>
+                <constraint firstItem="gOl-HP-NkC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Al9-jM-EFd"/>
+                <constraint firstItem="eMB-Mu-1MC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HZO-2s-kyP"/>
+                <constraint firstAttribute="bottom" secondItem="eMB-Mu-1MC" secondAttribute="bottom" id="THq-2v-D5Z"/>
+                <constraint firstAttribute="trailing" secondItem="gOl-HP-NkC" secondAttribute="trailing" id="f3i-BK-YPg"/>
+                <constraint firstItem="gOl-HP-NkC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tZ0-y6-yHs"/>
+                <constraint firstAttribute="trailing" secondItem="eMB-Mu-1MC" secondAttribute="trailing" id="vcn-LU-ag1"/>
+            </constraints>
+            <size key="customSize" width="72" height="79"/>
             <connections>
+                <outlet property="frontImage" destination="eMB-Mu-1MC" id="ooa-fR-FUb"/>
                 <outlet property="images" destination="gOl-HP-NkC" id="6fs-rY-WV7"/>
             </connections>
-            <point key="canvasLocation" x="169.56521739130437" y="83.035714285714278"/>
+            <point key="canvasLocation" x="-5.7971014492753632" y="39.508928571428569"/>
         </collectionViewCell>
     </objects>
 </document>

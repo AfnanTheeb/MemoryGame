@@ -12,6 +12,7 @@ class ImagesCards: UICollectionViewCell {
     @IBOutlet weak var images: UIImageView!
     
     
+    @IBOutlet weak var frontImage: UIImageView!
     
 
     override func awakeFromNib() {

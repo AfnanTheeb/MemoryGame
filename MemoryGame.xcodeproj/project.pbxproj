@@ -10,6 +10,7 @@
 		4311CAF1274A5F23006DD513 /* ImagesCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4311CAEF274A5F22006DD513 /* ImagesCards.swift */; };
 		4311CAF2274A5F23006DD513 /* ImagesCards.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4311CAF0274A5F23006DD513 /* ImagesCards.xib */; };
 		916D5F81274BAE8500851A16 /* startGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916D5F80274BAE8500851A16 /* startGames.swift */; };
+		917BA1CC274D01B6009181F6 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BA1CB274D01B6009181F6 /* homeViewController.swift */; };
 		91B5488F274AB9B9006711D4 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B5488E274AB9B9006711D4 /* Cards.swift */; };
 		A2262E97274A322500959246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E96274A322500959246 /* AppDelegate.swift */; };
 		A2262E99274A322500959246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E98274A322500959246 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 		4311CAEF274A5F22006DD513 /* ImagesCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCards.swift; sourceTree = "<group>"; };
 		4311CAF0274A5F23006DD513 /* ImagesCards.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesCards.xib; sourceTree = "<group>"; };
 		916D5F80274BAE8500851A16 /* startGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startGames.swift; sourceTree = "<group>"; };
+		917BA1CB274D01B6009181F6 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		91B5488E274AB9B9006711D4 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		A2262E93274A322500959246 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2262E96274A322500959246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				4311CAEF274A5F22006DD513 /* ImagesCards.swift */,
 				A2262E96274A322500959246 /* AppDelegate.swift */,
 				A2262E98274A322500959246 /* SceneDelegate.swift */,
+				917BA1CB274D01B6009181F6 /* homeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				A2262E9B274A322500959246 /* ViewController.swift in Sources */,
 				A2262E97274A322500959246 /* AppDelegate.swift in Sources */,
 				A2262EA1274A322500959246 /* MemoryGame.xcdatamodeld in Sources */,
+				917BA1CC274D01B6009181F6 /* homeViewController.swift in Sources */,
 				91B5488F274AB9B9006711D4 /* Cards.swift in Sources */,
 				A2262E99274A322500959246 /* SceneDelegate.swift in Sources */,
 				916D5F81274BAE8500851A16 /* startGames.swift in Sources */,
