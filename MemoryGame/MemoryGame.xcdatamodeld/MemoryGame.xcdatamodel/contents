@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
+    <entity name="Player" representedClassName=".Player" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="toRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Round" inverseName="toPlayer" inverseEntity="Round"/>
     </entity>
     <entity name="Round" representedClassName="Round" syncable="YES" codeGenerationType="class">
         <attribute name="result" optional="YES" attributeType="String"/>
+        <relationship name="toPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="toRound" inverseEntity="Player"/>
     </entity>
     <elements>
-        <element name="Player" positionX="-63" positionY="-18" width="128" height="59"/>
-        <element name="Round" positionX="-54" positionY="9" width="128" height="44"/>
+        <element name="Player" positionX="-207.87109375" positionY="-79.78125" width="125.0625" height="103"/>
+        <element name="Round" positionX="-5.83984375" positionY="59.96484375" width="128" height="73"/>
     </elements>
 </model>

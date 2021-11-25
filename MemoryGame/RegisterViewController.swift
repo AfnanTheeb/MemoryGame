@@ -6,16 +6,51 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterViewController: UIViewController {
-
+    
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var passWord: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var confirmEmail: UITextField!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    func createPlayer(){
+        
+        // Fetch using predicate of given Username - name.text
+        // If there is at least one record then User already exist
+        
+        
+        
+        let playerEntity = NSEntityDescription.entity(forEntityName: "Player", in: context)!
+        
+        let newUser = NSManagedObject(entity: playerEntity, insertInto: context)
+        newUser.setValue(name.text, forKey: "username")
+        newUser.setValue(passWord.text, forKey: "password")
+        newUser.setValue(email.text, forKey: "email")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed save new player")
+        }
+    }
+    @IBAction func register(_ sender: Any) {
+        
+        if (email.text == confirmEmail.text){
+            createPlayer()
+        } else {
+            print("Email not matched")
+        }
+    }
     
-
     /*
     // MARK: - Navigation
 
