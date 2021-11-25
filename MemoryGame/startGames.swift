@@ -11,7 +11,7 @@ class StartGames: UIViewController {
 
     
     @IBAction func startBtn(_ sender: Any) {
-        if let vc = self.storyboard?.instantiateViewController(identifier: "gameID") as? ViewController {self.navigationController?.pushViewController(vc, animated: true)}
+        if let vc = self.storyboard?.instantiateViewController(identifier: "gameID") as? MemoryGameVC {self.navigationController?.pushViewController(vc, animated: true)}
        
 //        timmer 
     }
