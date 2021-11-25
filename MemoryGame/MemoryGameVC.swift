@@ -16,8 +16,8 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         UIImage(named: "bee1") ,
         UIImage(named: "green1") ,
         UIImage(named: "green1") ,
-        UIImage(named: "brid1") ,
-        UIImage(named: "bird1") ,
+//        UIImage(named: "brid1") ,
+//        UIImage(named: "bird1") ,
         UIImage(named: "star1") ,
         UIImage(named: "star1") ,
         UIImage(named: "cake1") ,
@@ -29,13 +29,19 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     
     //     timer ----------------
+    
+    var timer = Timer()
+    var counter = 0
+    
+    
     @IBOutlet weak var timerLable: UILabel!
     
+  
     
-    
+    //  -------------   func delegate
     
     @IBOutlet weak var collectionView: UICollectionView!
-    //  -------------   func delegate
+ 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgeCardArr.count
@@ -69,10 +75,13 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
             print("Keep going")
             lastSelectedIndex = indexPath.row
         }
+//         showAlert()
         collectionView.reloadData()
         print("Last index: \(lastSelectedIndex), current Index: \(indexPath.row)")
+       
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -80,28 +89,43 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
         
-            //        create timer
-//        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true )
+
+            setUp()
+        }
+        
+    //         alert
+//            func showAlert (){
+//                let alert = UIAlertController(title: nil, message: "result ", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: {action in
 //
-//        RunLoop.main.add(timer! , forMode: .common)
+//                }))
 //
-       
-        // Do any additional setup after loading the view.
+//                present(alert, animated : true)
+//
+//
+        
+        
+        
+        
+        
+
+    func setUp(){
+        
+        
+        if self.timer == nil {
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 00.00, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true )
+        }
         
     }
     
     
+        @objc func timerMethod (){
+            timerLable.text = String(counter)
+            counter += 1
+           
+        }
 
-    //    func createTimer (){
-    //        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(time), userInfo: nil, repeats: false)
-    //    }
-    //
-    //
-    //    @objc func time (){
-    //
-    //        view.backgroundColor = .systemRed
-    //    }
-    //
     
     
     
@@ -110,26 +134,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
 }
 
-
-    
-//    timer func -----------------
-//    @objc func timerElapsed(){
-//
-//        milliSeconds -= 1
-//        conver to seconds
-//        let seconds = String(format: "%.2f", milliSeconds/1000)
-//        set lable
-//        timerLable.text = "time :"
-//        when timer stop
-//        if milliSeconds <= 0 {
-//            timer?.invalidate()
-//            timerLable.textColor = UIColor.red
-//
-//
-//
-//        }
-//
-        
+ 
         
         
    
