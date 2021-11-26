@@ -22,12 +22,4 @@ class ImagesCards: UICollectionViewCell {
         
     }
     
-    func updateCell(_ canShow: Bool) {
-        if (canShow == true) {
-            viewEmpty.backgroundColor = .none
-        } else {
-            viewEmpty.backgroundColor = .white
-        }
-    }
-
 }

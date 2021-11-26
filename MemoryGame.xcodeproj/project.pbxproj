@@ -14,6 +14,8 @@
 		A2025563274E442700C5D607 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025562274E442700C5D607 /* RegisterViewController.swift */; };
 		A2025565274E445700C5D607 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025564274E445700C5D607 /* ProfileViewController.swift */; };
 		A2025567274E447300C5D607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025566274E447300C5D607 /* LoginViewController.swift */; };
+		A203AC7127518A5300C49389 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203AC6F27518A5300C49389 /* Player+CoreDataClass.swift */; };
+		A203AC7227518A5300C49389 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203AC7027518A5300C49389 /* Player+CoreDataProperties.swift */; };
 		A2262E97274A322500959246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E96274A322500959246 /* AppDelegate.swift */; };
 		A2262E99274A322500959246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E98274A322500959246 /* SceneDelegate.swift */; };
 		A2262E9B274A322500959246 /* MemoryGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E9A274A322500959246 /* MemoryGameVC.swift */; };
@@ -31,6 +33,8 @@
 		A2025562274E442700C5D607 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A2025564274E445700C5D607 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A2025566274E447300C5D607 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A203AC6F27518A5300C49389 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Player+CoreDataClass.swift"; path = "MemoryGame/Player+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A203AC7027518A5300C49389 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Player+CoreDataProperties.swift"; path = "MemoryGame/Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2262E93274A322500959246 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2262E96274A322500959246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2262E98274A322500959246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 		A2262E8A274A322500959246 = {
 			isa = PBXGroup;
 			children = (
+				A203AC6F27518A5300C49389 /* Player+CoreDataClass.swift */,
+				A203AC7027518A5300C49389 /* Player+CoreDataProperties.swift */,
 				A2262E95274A322500959246 /* MemoryGame */,
 				A2262E94274A322500959246 /* Products */,
 			);
@@ -189,7 +195,9 @@
 			files = (
 				A2025563274E442700C5D607 /* RegisterViewController.swift in Sources */,
 				A2262E9B274A322500959246 /* MemoryGameVC.swift in Sources */,
+				A203AC7227518A5300C49389 /* Player+CoreDataProperties.swift in Sources */,
 				A2025565274E445700C5D607 /* ProfileViewController.swift in Sources */,
+				A203AC7127518A5300C49389 /* Player+CoreDataClass.swift in Sources */,
 				A2262E97274A322500959246 /* AppDelegate.swift in Sources */,
 				A2262EA1274A322500959246 /* MemoryGame.xcdatamodeld in Sources */,
 				91B5488F274AB9B9006711D4 /* Cards.swift in Sources */,

@@ -30,10 +30,12 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     //     timer ----------------
     
-    var timer = Timer()
-    var counter = 0
-    var selectedCellIndex = 0
-    
+    var timer : Timer? = Timer()
+    var counter : Double = 0
+    var currentSelectedIndex = 0
+    var lastSelectedIndex : Int?
+    var countMatch : Int = 0
+    var gameComplete : Bool = false
     @IBOutlet weak var timerLable: UILabel!
     
     
@@ -56,7 +58,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         @objc func timerMethod (){
             
             counter += 1
-            let time = seconds(second: counter)
+            let time = seconds(second: Int(counter))
             let timeString = maketime(hours: time.0, minutes: time.1, second: time.2)
             timerLable.text = timeString
         }
@@ -102,40 +104,68 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardID", for: indexPath) as! ImagesCards
         cell.images.image = imgeCardArr[indexPath.row]
         
-        if (lastSelectedIndex == indexPath.row || selectedCellIndex == indexPath.row) {
-            cell.updateCell(false)
-        } else {
-            cell.updateCell(true)
-        }
         
         return cell
     }
+    
+    
 
 //     func delete match image
     
-    var lastSelectedIndex : Int?
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCellIndex = indexPath.row
-        
+        currentSelectedIndex = indexPath.row
+        var lastCell : ImagesCards?
         let cellObject = collectionView.cellForItem(at: indexPath) as! ImagesCards
-       
+        if let lastSelectedIndex = lastSelectedIndex {
+            lastCell = collectionView.cellForItem(at: IndexPath(item: lastSelectedIndex, section: 0)) as! ImagesCards
+        }
+        
+
+
         if lastSelectedIndex != nil  {
-            if (imgeCardArr[lastSelectedIndex!] == cellObject.images.image && lastSelectedIndex != indexPath.row) {
-          
-                lastSelectedIndex = nil
-//                cellObject.updateCell(false)
+            cellObject.frontImage.isHidden = true
+            if (imgeCardArr[lastSelectedIndex!] == imgeCardArr[currentSelectedIndex] && lastSelectedIndex != indexPath.row) {
+                countMatch += 1
+                print("Matched")
+                cellObject.frontImage.isHidden = true
+                cellObject.isUserInteractionEnabled = false
+                lastCell?.frontImage.isHidden = true
+                lastCell?.isUserInteractionEnabled = false
+                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+                    cellObject.images.alpha = 0.3
+                    lastCell?.images.alpha = 0.3
+                    
+                }
+                
+                
+                //cellObject.updateCell(false)
+            } else {
+                print("Not matched")
+                Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
+                    lastCell?.frontImage.isHidden = false
+                    cellObject.frontImage.isHidden = false
+                    
+                }
             }
+            lastSelectedIndex = nil
         } else {
-         
+            print("Keep going")
+            cellObject.frontImage.isHidden = true
             lastSelectedIndex = indexPath.row
         }
-        print("Last index: \(lastSelectedIndex), current Index: \(selectedCellIndex)")
         
-        collectionView.reloadData()
-        
-     
+        if countMatch == 8 {
+            collectionView.isUserInteractionEnabled = false
+            
+            print("Stop Timer")
+            timer?.invalidate()
+            print("Score: \(counter)")
+            showAlert(result: String(counter))
+            
+            
+        }
+  
     }
     
     override func viewDidLoad() {
@@ -146,6 +176,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
         
         setUp()
+//        imgeCardArr.shuffle()
         }
     
     
@@ -153,28 +184,17 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
         
     //         alert
-//            func showAlert (){
-//                let alert = UIAlertController(title: nil, message: "result ", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: {action in
-//
-//                }))
-//
-//                present(alert, animated : true)
-//
-//
-        
-        
-        
-//   --------------------------------------
+    func showAlert (result: String){
+        timerLable.text = ".. GAME OVER .."
+        timerLable.textColor = .red
+        timerLable.font = UIFont(name: ".SFUI-Semibold", size: 25)
+                let alert = UIAlertController(title: nil, message: result, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: {action in
 
+                }))
 
-   
+                present(alert, animated : true)
+    }
+    
+    
 }
-
- 
-        
-
-    
-    
-
-

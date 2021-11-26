@@ -99,21 +99,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
         tableview.dataSource = self
      
         // Do any additional setup after loading the view.
-        
-        var round1 = Round(context: context)
-        round1.result = String(343)
-        
-        var player1 = Player(context: context)
-        
-        // Assign Round as relationship to Player
-        player1.addToToRound(round1)
-//        player1.addToToRound(round2)
-        
-        // Access attribute from Round Entity like this
-        player1.toRound?.value(forKey: "result")
-        
-        
-        
 
    }
     //----------- Use tap gesture recognizer to delete image
