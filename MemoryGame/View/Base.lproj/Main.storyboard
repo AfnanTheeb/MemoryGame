@@ -85,6 +85,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="X1e-3b-vcn"/>
                     <connections>
+                        <outlet property="bgImg" destination="VSF-CK-nmI" id="GhQ-fg-6BL"/>
+                        <outlet property="label" destination="agM-AP-xWg" id="Aha-2E-UtF"/>
                         <outlet property="password" destination="yyb-oK-Iqc" id="Dhv-8m-r1A"/>
                         <outlet property="username" destination="ah4-l7-QM7" id="d5N-Ou-kTI"/>
                     </connections>
@@ -134,10 +136,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image11" translatesAutoresizingMaskIntoConstraints="NO" id="OWS-Rn-oNt">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image11" translatesAutoresizingMaskIntoConstraints="NO" id="OWS-Rn-oNt">
                                 <rect key="frame" x="245" y="47" width="160" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ftp-mD-zhx" appends="YES" id="LOo-Er-fps"/>
+                                </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-Va-FcK">
+                                <rect key="frame" x="351" y="135" width="42" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="onClickSelectIamge:" destination="44B-Dj-Pei" eventType="touchUpInside" id="2Sw-bO-G16"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4l7-43-XPj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -151,11 +166,17 @@
                     <tabBarItem key="tabBarItem" title="" image="newspaper" catalog="system" id="TbM-Np-bGK"/>
                     <connections>
                         <outlet property="emailLabel" destination="L4p-86-KP5" id="WuZ-wF-BDf"/>
+                        <outlet property="imageProfile" destination="OWS-Rn-oNt" id="UGm-wr-xzM"/>
                         <outlet property="nameLabel" destination="3RN-gV-MLC" id="AJU-VD-uXg"/>
                         <outlet property="tableview" destination="yXR-5P-hJT" id="wIQ-sq-N3i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65d-7B-Bkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ftp-mD-zhx">
+                    <connections>
+                        <action selector="tapAction:" destination="44B-Dj-Pei" id="o3g-sl-ITt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2065.217391304348" y="1094.8660714285713"/>
         </scene>
@@ -168,22 +189,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4el-s5-QiW">
-                                <rect key="frame" x="53" y="178" width="300" height="34"/>
+                                <rect key="frame" x="53" y="181.5" width="300" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nj-3q-npM">
-                                <rect key="frame" x="53" y="233" width="300" height="34"/>
+                                <rect key="frame" x="53" y="236.5" width="300" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ja-QC-A4d">
-                                <rect key="frame" x="53" y="289" width="300" height="34"/>
+                                <rect key="frame" x="53" y="292.5" width="300" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ot-tb-R4p">
-                                <rect key="frame" x="107" y="455" width="179" height="31"/>
+                                <rect key="frame" x="107" y="458.5" width="179" height="31"/>
                                 <color key="backgroundColor" red="0.25325688172576177" green="0.49050368431583113" blue="1" alpha="0.16982886904761904" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register">
@@ -194,7 +215,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk8-2X-PbX">
-                                <rect key="frame" x="77" y="76" width="233" height="47"/>
+                                <rect key="frame" x="77" y="76" width="233" height="50.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Welcome">
                                         <attributes>
@@ -206,7 +227,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the email again!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMK-z6-Occ">
-                                <rect key="frame" x="53" y="353" width="300" height="34"/>
+                                <rect key="frame" x="53" y="356.5" width="300" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -255,7 +276,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-oV-E6v">
-                                <rect key="frame" x="42" y="336" width="330" height="55.5"/>
+                                <rect key="frame" x="42" y="336" width="330" height="60"/>
                                 <attributedString key="attributedText">
                                     <fragment content="MeMory Game">
                                         <attributes>
@@ -301,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGW-gi-DQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2064" y="317"/>
+            <point key="canvasLocation" x="-2065.217391304348" y="316.07142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Xc0-IX-alU">
@@ -356,7 +377,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="syO-dn-4PY"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-VX-M8b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gH9-VX-M8b">
                                 <rect key="frame" x="54" y="77" width="270" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935" y="317"/>
+            <point key="canvasLocation" x="-1162" y="-287"/>
         </scene>
     </scenes>
     <resources>
@@ -387,6 +408,7 @@
         <image name="image11" width="800" height="504"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
