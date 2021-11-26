@@ -13,13 +13,46 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    
+    
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var bgImg: UIImageView!
+    
+    
     var player : Player?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        label.alpha = 0
+        bgImg.alpha = 0
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+//  --------------   animtion in background image and label --------------------
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 1, animations:{
+            self.bgImg.alpha = 0.6
+        } ){(true) in
+            UIView.animate(withDuration: 1, animations : {
+                self.label.alpha = 1
+            } , completion : {(true ) in
+                
+            })
+        }
+        
+        
+        
+    }
+    
+//    ----------------
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
