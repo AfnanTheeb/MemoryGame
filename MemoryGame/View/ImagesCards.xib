@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +22,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMB-Mu-1MC">
                         <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S56-AL-fOe">
+                        <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -30,8 +34,12 @@
                 <constraint firstItem="eMB-Mu-1MC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6OV-gS-AIH"/>
                 <constraint firstItem="gOl-HP-NkC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Al9-jM-EFd"/>
                 <constraint firstItem="eMB-Mu-1MC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HZO-2s-kyP"/>
+                <constraint firstItem="S56-AL-fOe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QHG-BW-ghB"/>
                 <constraint firstAttribute="bottom" secondItem="eMB-Mu-1MC" secondAttribute="bottom" id="THq-2v-D5Z"/>
+                <constraint firstItem="S56-AL-fOe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="W4I-Jo-G35"/>
                 <constraint firstAttribute="trailing" secondItem="gOl-HP-NkC" secondAttribute="trailing" id="f3i-BK-YPg"/>
+                <constraint firstAttribute="bottom" secondItem="S56-AL-fOe" secondAttribute="bottom" id="hUi-kj-Z05"/>
+                <constraint firstAttribute="trailing" secondItem="S56-AL-fOe" secondAttribute="trailing" id="lfN-JO-iQ0"/>
                 <constraint firstItem="gOl-HP-NkC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tZ0-y6-yHs"/>
                 <constraint firstAttribute="trailing" secondItem="eMB-Mu-1MC" secondAttribute="trailing" id="vcn-LU-ag1"/>
             </constraints>
@@ -39,6 +47,7 @@
             <connections>
                 <outlet property="frontImage" destination="eMB-Mu-1MC" id="ooa-fR-FUb"/>
                 <outlet property="images" destination="gOl-HP-NkC" id="6fs-rY-WV7"/>
+                <outlet property="viewEmpty" destination="S56-AL-fOe" id="LjM-Z9-dpx"/>
             </connections>
             <point key="canvasLocation" x="-5.7971014492753632" y="39.508928571428569"/>
         </collectionViewCell>

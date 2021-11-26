@@ -32,7 +32,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     var timer = Timer()
     var counter = 0
-    
+    var selectedCellIndex = 0
     
     @IBOutlet weak var timerLable: UILabel!
     
@@ -49,7 +49,14 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardID", for: indexPath) as! ImagesCards
-        cell.images.image = imgeCardArr[indexPath.row ]
+        cell.images.image = imgeCardArr[indexPath.row]
+        
+        if (lastSelectedIndex == indexPath.row || selectedCellIndex == indexPath.row) {
+            cell.updateCell(false)
+        } else {
+            cell.updateCell(true)
+        }
+        
         return cell
     }
     //    ---------------
@@ -60,26 +67,26 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCellIndex = indexPath.row
         
         let cellObject = collectionView.cellForItem(at: indexPath) as! ImagesCards
         print("selected image: \(cellObject.images.image)")
         print("prev image: \(imgeCardArr[indexPath.row])")
         if lastSelectedIndex != nil  {
             if (imgeCardArr[lastSelectedIndex!] == cellObject.images.image && lastSelectedIndex != indexPath.row) {
-                imgeCardArr.remove(at: lastSelectedIndex!)
-                imgeCardArr.remove(at: indexPath.row)
                 print("Matched")
                 lastSelectedIndex = nil
+                //cellObject.updateCell(false)
             }
         } else {
             print("Keep going")
             lastSelectedIndex = indexPath.row
         }
-//         showAlert()
+        print("Last index: \(lastSelectedIndex), current Index: \(selectedCellIndex)")
+        
         collectionView.reloadData()
-        print("Last index: \(lastSelectedIndex), current Index: \(indexPath.row)")
-       
-
+        
+     
     }
     
     override func viewDidLoad() {
@@ -89,9 +96,12 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
         
-
-            setUp()
+        setUp()
         }
+    
+    
+    
+    
         
     //         alert
 //            func showAlert (){
@@ -107,14 +117,19 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         
         
         
-        
-
+    
     func setUp(){
         
         
         if self.timer == nil {
             
-            self.timer = Timer.scheduledTimer(timeInterval: 00.00, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true )
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                              target: self,
+                                              selector: #selector(timerMethod),
+                                              userInfo: nil,
+                                              repeats: true )
+            
+            
         }
         
     }
@@ -125,17 +140,20 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
             counter += 1
            
         }
-
+//
+//    func stopTimer(){
+//        timer.invalidate()
+//    }
+//
     
-    
-    
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        print (".......")
+    }
     
     
 }
 
  
-        
         
    
     

@@ -14,10 +14,20 @@ class ImagesCards: UICollectionViewCell {
     
     @IBOutlet weak var frontImage: UIImageView!
     
-
+    @IBOutlet weak var viewEmpty: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    }
+    
+    func updateCell(_ canShow: Bool) {
+        if (canShow == true) {
+            viewEmpty.backgroundColor = .none
+        } else {
+            viewEmpty.backgroundColor = .white
+        }
     }
 
 }
