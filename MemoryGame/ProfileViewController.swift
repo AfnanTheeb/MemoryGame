@@ -106,11 +106,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
         var player1 = Player(context: context)
         
         // Assign Round as relationship to Player
-        player1.addToToRound(round1)
+       // player1.addToToRound(round1)
 //        player1.addToToRound(round2)
         
         // Access attribute from Round Entity like this
-        player1.toRound?.value(forKey: "result")
+      //  player1.toRound?.value(forKey: "result")
         
         
         
