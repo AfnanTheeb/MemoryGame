@@ -13,12 +13,12 @@
 		A2025563274E442700C5D607 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025562274E442700C5D607 /* RegisterViewController.swift */; };
 		A2025565274E445700C5D607 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025564274E445700C5D607 /* ProfileViewController.swift */; };
 		A2025567274E447300C5D607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2025566274E447300C5D607 /* LoginViewController.swift */; };
-		A203ACB5275293EF00C49389 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACB1275293EF00C49389 /* Player+CoreDataClass.swift */; };
-		A203ACB6275293EF00C49389 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACB2275293EF00C49389 /* Player+CoreDataProperties.swift */; };
-		A203ACB7275293EF00C49389 /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACB3275293EF00C49389 /* Score+CoreDataClass.swift */; };
-		A203ACB8275293EF00C49389 /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACB4275293EF00C49389 /* Score+CoreDataProperties.swift */; };
 		A203ACBB2752C5A800C49389 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACB92752C5A800C49389 /* ScoreCell.swift */; };
 		A203ACBC2752C5A800C49389 /* ScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A203ACBA2752C5A800C49389 /* ScoreCell.xib */; };
+		A203ACCB2753580000C49389 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACC72753580000C49389 /* Player+CoreDataClass.swift */; };
+		A203ACCC2753580000C49389 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACC82753580000C49389 /* Player+CoreDataProperties.swift */; };
+		A203ACCD2753580000C49389 /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACC92753580000C49389 /* Score+CoreDataClass.swift */; };
+		A203ACCE2753580000C49389 /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203ACCA2753580000C49389 /* Score+CoreDataProperties.swift */; };
 		A2262E97274A322500959246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E96274A322500959246 /* AppDelegate.swift */; };
 		A2262E99274A322500959246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E98274A322500959246 /* SceneDelegate.swift */; };
 		A2262E9B274A322500959246 /* MemoryGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2262E9A274A322500959246 /* MemoryGameVC.swift */; };
@@ -35,12 +35,12 @@
 		A2025562274E442700C5D607 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A2025564274E445700C5D607 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A2025566274E447300C5D607 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		A203ACB1275293EF00C49389 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A203ACB2275293EF00C49389 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A203ACB3275293EF00C49389 /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A203ACB4275293EF00C49389 /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A203ACB92752C5A800C49389 /* ScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		A203ACBA2752C5A800C49389 /* ScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreCell.xib; sourceTree = "<group>"; };
+		A203ACC72753580000C49389 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A203ACC82753580000C49389 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A203ACC92753580000C49389 /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A203ACCA2753580000C49389 /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2262E93274A322500959246 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2262E96274A322500959246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2262E98274A322500959246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				A2262E9F274A322500959246 /* MemoryGame.xcdatamodeld */,
-				A203ACB4275293EF00C49389 /* Score+CoreDataProperties.swift */,
-				A203ACB3275293EF00C49389 /* Score+CoreDataClass.swift */,
-				A203ACB2275293EF00C49389 /* Player+CoreDataProperties.swift */,
-				A203ACB1275293EF00C49389 /* Player+CoreDataClass.swift */,
+				A203ACC72753580000C49389 /* Player+CoreDataClass.swift */,
+				A203ACC82753580000C49389 /* Player+CoreDataProperties.swift */,
+				A203ACC92753580000C49389 /* Score+CoreDataClass.swift */,
+				A203ACCA2753580000C49389 /* Score+CoreDataProperties.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -203,16 +203,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A203ACB8275293EF00C49389 /* Score+CoreDataProperties.swift in Sources */,
+				A203ACCE2753580000C49389 /* Score+CoreDataProperties.swift in Sources */,
 				A2025563274E442700C5D607 /* RegisterViewController.swift in Sources */,
 				A2262E9B274A322500959246 /* MemoryGameVC.swift in Sources */,
-				A203ACB6275293EF00C49389 /* Player+CoreDataProperties.swift in Sources */,
+				A203ACCC2753580000C49389 /* Player+CoreDataProperties.swift in Sources */,
 				A203ACBB2752C5A800C49389 /* ScoreCell.swift in Sources */,
+				A203ACCB2753580000C49389 /* Player+CoreDataClass.swift in Sources */,
 				A2025565274E445700C5D607 /* ProfileViewController.swift in Sources */,
-				A203ACB5275293EF00C49389 /* Player+CoreDataClass.swift in Sources */,
 				A2262E97274A322500959246 /* AppDelegate.swift in Sources */,
+				A203ACCD2753580000C49389 /* Score+CoreDataClass.swift in Sources */,
 				A2262EA1274A322500959246 /* MemoryGame.xcdatamodeld in Sources */,
-				A203ACB7275293EF00C49389 /* Score+CoreDataClass.swift in Sources */,
 				A2262E99274A322500959246 /* SceneDelegate.swift in Sources */,
 				916D5F81274BAE8500851A16 /* StartGames.swift in Sources */,
 				4311CAF1274A5F23006DD513 /* ImagesCards.swift in Sources */,

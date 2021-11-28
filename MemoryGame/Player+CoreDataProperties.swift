@@ -2,11 +2,11 @@
 //  Player+CoreDataProperties.swift
 //  MemoryGame
 //
-//  Created by Afnan Theb on 22/04/1443 AH.
+//  Created by Afnan Theb on 23/04/1443 AH.
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
@@ -19,6 +19,7 @@ extension Player {
     @NSManaged public var email: String?
     @NSManaged public var password: String?
     @NSManaged public var username: String?
+    @NSManaged public var image: UIImage?
     @NSManaged public var score: Set<Score>?
 
 }
