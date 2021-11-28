@@ -9,12 +9,12 @@
 #### usage :
 
 six interfaces:
-LoginViewController
-RegisterViewController
-MemoryGameVC
-StartGames
-ImagesCards
-ProfileViewController
+- LoginViewController
+- RegisterViewController
+- MemoryGameVC
+- StartGames
+- ImagesCards
+- ProfileViewController
 
 #### Upcoming features :
 - Adding different sections to the memory game such as fruits and animals section and others
