@@ -18,8 +18,25 @@ extension Player {
 
     @NSManaged public var email: String?
     @NSManaged public var password: String?
-    @NSManaged public var results: [String]?
     @NSManaged public var username: String?
+    @NSManaged public var score: Set<Score>?
+
+}
+
+// MARK: Generated accessors for score
+extension Player {
+
+    @objc(addScoreObject:)
+    @NSManaged public func addToScore(_ value: Score)
+
+    @objc(removeScoreObject:)
+    @NSManaged public func removeFromScore(_ value: Score)
+
+    @objc(addScore:)
+    @NSManaged public func addToScore(_ values: NSSet)
+
+    @objc(removeScore:)
+    @NSManaged public func removeFromScore(_ values: NSSet)
 
 }
 
