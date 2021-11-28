@@ -31,13 +31,15 @@ class RegisterViewController: UIViewController {
         
         let playerEntity = NSEntityDescription.entity(forEntityName: "Player", in: context)!
         
-        let newUser = NSManagedObject(entity: playerEntity, insertInto: context)
-        newUser.setValue(name.text, forKey: "username")
-        newUser.setValue(passWord.text, forKey: "password")
-        newUser.setValue(email.text, forKey: "email")
+        let newUser = NSManagedObject(entity: playerEntity, insertInto: context) as! Player
+        newUser.username = name.text
+        newUser.email = email.text
+        newUser.password = passWord.text
+        newUser.score = Set()
         
         do {
             try context.save()
+            navigationController?.popViewController(animated: true)
         } catch {
             print("Failed save new player")
         }

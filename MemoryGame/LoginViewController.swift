@@ -60,7 +60,6 @@ class LoginViewController: UIViewController {
         if let username = username, let password = password {
             let fetchRequest : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Player")
             fetchRequest.predicate = NSPredicate(format: "username = %@", username)
-            //fetchRequest.predicate = NSPredicate(format: "password = %@", password)
             
             do {
                 let fetchPlayer = try context.fetch(fetchRequest)
@@ -69,6 +68,9 @@ class LoginViewController: UIViewController {
                         print(myPlayer.username ?? "Not Found")
                         print(myPlayer.password ?? "Not Found")
                         print(myPlayer.email ?? "Not Found")
+                    player = myPlayer
+                    
+                    performSegue(withIdentifier: "tabbarVC", sender: nil)
                 } else {
                     print("User not found")
                 }
@@ -81,16 +83,27 @@ class LoginViewController: UIViewController {
         }
     }
     @IBAction func loginAction(_ sender: Any) {
+        
         getUser(username: username.text, password: password.text)
+        username.text = ""
+        password.text = ""
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "tabbarVC" {
+            let tabbarVC = segue.destination as! UITabBarController
+            print(tabbarVC.viewControllers)
+            let startsGameVC = tabbarVC.viewControllers?[0] as! StartGames
+            startsGameVC.player = player
+            let profileVC = tabbarVC.viewControllers?[1] as! ProfileViewController
+            profileVC.player = player
+        }
     }
-    */
+    
 
 }

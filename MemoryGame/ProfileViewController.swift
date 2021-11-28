@@ -9,11 +9,12 @@ import UIKit
 import CoreData
 
 class ProfileViewController: UIViewController, UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate  {
-    
+    var player : Player?
     // TODO: Change to actual context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var round : [String]?
+    var round : [Score]? = []
+   
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var emailLabel: UILabel!
@@ -87,33 +88,30 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-      //  cell.textLabel?.text = result[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! ScoreCell
+        cell.score.text = round?[indexPath.row].result
+
+        if indexPath.row == 0 {
+            cell.top.isHidden = false
+        } else {
+            cell.top.isHidden = true
+        }
      return cell
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+//    
+        nameLabel.text = player?.username
+        emailLabel.text = player?.email
+        fetchPlayer()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.delegate = self
         tableview.dataSource = self
-     
+        tableview.register(UINib(nibName: "ScoreCell", bundle: nil), forCellReuseIdentifier: "scoreCell")
+        fetchPlayer()
         // Do any additional setup after loading the view.
-        
-        var round1 = Round(context: context)
-        round1.result = String(343)
-        
-        var player1 = Player(context: context)
-        
-        // Assign Round as relationship to Player
-        player1.addToToRound(round1)
-//        player1.addToToRound(round2)
-        
-        // Access attribute from Round Entity like this
-        player1.toRound?.value(forKey: "result")
-        
-        
-        
 
    }
     //----------- Use tap gesture recognizer to delete image
@@ -130,7 +128,50 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
           }))
           present(alertItem, animated: true, completion: nil)
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            do {
+                try context.delete((round?[indexPath.row])!)
+                try context.save()
+            } catch {
+                print("error delete")
+            }
+            round?.remove(at: indexPath.row)
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            fetchPlayer()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+//tableView.reloadData()
     }
+    func fetchPlayer(){
+        
+        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Player")
+        do {
+            if let player = player?.username {
+                fetchRequest.predicate = NSPredicate(format: "username = %@", player)
+                
+            }
+            
+            let fetchPlayer = try context.fetch(fetchRequest) as! [Player]
+            round = []
+            fetchPlayer[0].score?.forEach({ score in
+                round?.append(score)
+            })
+            
+        } catch {
+            print("Cannot save score")
+        }
+        
+        round = round?.sorted(by: { lhs, rhs in
+            return lhs.result! < rhs.result!
+        })
+        tableview.reloadData()
+        
+    }
+}
 
   
     
