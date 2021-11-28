@@ -6,9 +6,11 @@
 //
 
 import UIKit
-
+import CoreData
 class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource  {
-        
+    var player : Player?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     var imgeCardArr = [
         UIImage(named: "image1"),
         UIImage(named: "image1") ,
@@ -17,7 +19,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         UIImage(named: "image3") ,
         UIImage(named: "image3") ,
         UIImage(named: "image8") ,
-       UIImage(named: "image8") ,
+        UIImage(named: "image8") ,
         UIImage(named: "image4") ,
         UIImage(named: "image4") ,
         UIImage(named: "image5") ,
@@ -30,10 +32,12 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     //     timer ----------------
     
-    var timer = Timer()
-    var counter = 0
-    var selectedCellIndex = 0
-    
+    var timer : Timer? = Timer()
+    var counter : Double = 0
+    var currentSelectedIndex = 0
+    var lastSelectedIndex : Int?
+    var countMatch : Int = 0
+    var replay : Int = 0
     @IBOutlet weak var timerLable: UILabel!
     
     
@@ -41,7 +45,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         
         if self.timer == nil {
             
-            self.timer = Timer.scheduledTimer(timeInterval: 1,
+            self.timer = Timer.scheduledTimer(timeInterval: 0.1,
                                               target: self,
                                               selector: #selector(timerMethod),
                                               userInfo: nil,
@@ -56,7 +60,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         @objc func timerMethod (){
             
             counter += 1
-            let time = seconds(second: counter)
+            let time = seconds(second: Int(counter))
             let timeString = maketime(hours: time.0, minutes: time.1, second: time.2)
             timerLable.text = timeString
         }
@@ -71,7 +75,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
     func seconds (second : Int)-> (Int, Int , Int){
         
-        return ((second / 3600 ), ((second % 3600) / 60 ) , ((second % 3600) % 60))
+        return ((second/3600), ((second % 3600) / 60 ) , ((second % 3600) % 60))
     }
     func maketime(hours : Int, minutes : Int , second : Int)-> String{
         
@@ -102,50 +106,86 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardID", for: indexPath) as! ImagesCards
         cell.images.image = imgeCardArr[indexPath.row]
         
-        if (lastSelectedIndex == indexPath.row || selectedCellIndex == indexPath.row) {
-            cell.updateCell(false)
-        } else {
-            cell.updateCell(true)
-        }
         
         return cell
     }
+    
+    
 
 //     func delete match image
     
-    var lastSelectedIndex : Int?
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCellIndex = indexPath.row
+        currentSelectedIndex = indexPath.row
+        // to save last click cell
+        // save object to allow change
+        var lastCell : ImagesCards?
+        let currCellObject = collectionView.cellForItem(at: indexPath) as! ImagesCards
+        // to unwrap optional value
+        if let lastSelectedIndex = lastSelectedIndex {
+            lastCell = collectionView.cellForItem(at: IndexPath(item: lastSelectedIndex, section: 0)) as? ImagesCards
+        }
         
-        let cellObject = collectionView.cellForItem(at: indexPath) as! ImagesCards
-       
+        currCellObject.frontImage.isHidden = true
+
+
         if lastSelectedIndex != nil  {
-            if (imgeCardArr[lastSelectedIndex!] == cellObject.images.image && lastSelectedIndex != indexPath.row) {
-          
-                lastSelectedIndex = nil
-//                cellObject.updateCell(false)
+
+
+            if (imgeCardArr[lastSelectedIndex!] == imgeCardArr[currentSelectedIndex] && lastSelectedIndex != indexPath.row) {
+                countMatch += 1
+                print("Matched")
+                // show image cell to player
+                currCellObject.frontImage.isHidden = true
+                // to stop clcik
+                currCellObject.isUserInteractionEnabled = false
+                lastCell?.frontImage.isHidden = true
+                lastCell?.isUserInteractionEnabled = false
+                Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+                    currCellObject.images.alpha = 0.3
+                    lastCell?.images.alpha = 0.3
+                    
+                }
+                
+                
+                //cellObject.updateCell(false)
+            } else {
+                print("Not matched")
+                Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
+                    lastCell?.frontImage.isHidden = false
+                    currCellObject.frontImage.isHidden = false
+                    
+                }
             }
+            lastSelectedIndex = nil
         } else {
-         
+            print("Keep going")
+            currCellObject.frontImage.isHidden = true
             lastSelectedIndex = indexPath.row
         }
-        print("Last index: \(lastSelectedIndex), current Index: \(selectedCellIndex)")
         
-        collectionView.reloadData()
-        
-     
+        if countMatch == 8 {
+            collectionView.isUserInteractionEnabled = false
+            
+            print("Stop Timer")
+            timer?.invalidate()
+            print("Score: \(counter)")
+            showAlert(result: timerLable.text!)
+            
+            
+        }
+  
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        print("name player \(player?.username)")
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
         
         setUp()
+        imgeCardArr.shuffle()
         }
     
     
@@ -153,28 +193,55 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     
         
     //         alert
-//            func showAlert (){
-//                let alert = UIAlertController(title: nil, message: "result ", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: {action in
-//
-//                }))
-//
-//                present(alert, animated : true)
-//
-//
+    func showAlert (result: String){
+        print("User is: \(player?.username)")
+        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Player")
+        // Update Player
+        if let username = player?.username {
+            do {
+                fetchRequest.predicate = NSPredicate(format: "username = %@", username)
+
+                let fetchPlayer = try context.fetch(fetchRequest)
+                print("User: \(fetchPlayer)")
+                if fetchPlayer.indices.contains(0) {
+                    print("User found")
+                    let playerProfile = fetchPlayer[0] as! Player
+                    let userScore = Score(context: context)
+                    userScore.result = result
+                    playerProfile.score?.insert(userScore)
+                    print(playerProfile)
+    
+                    try context.save()
+                }
         
-        
-        
-//   --------------------------------------
+            } catch {
+                print("Cannot save score")
+            }
+        }
+        timerLable.text = ".. GAME OVER .."
+        timerLable.textColor = .red
+        timerLable.font = UIFont(name: ".SFUI-Semibold", size: 25)
+        let alert = UIAlertController(title:" Great ", message: "Time  (\(result))", preferredStyle: .alert)
+        if replay == 0 {
+        alert.addAction(UIAlertAction(title: "Replay", style: .cancel, handler: {action in
+            self.timer = nil
+            self.timerLable.textColor = .blue
+            self.lastSelectedIndex = nil
+            self.countMatch = 0
+            self.collectionView.isUserInteractionEnabled = true
+            self.collectionView.reloadSections(IndexSet(integer: 0))
+            self.replay = 1
+            self.setUp()
+        }))
+        }
+        alert.addAction(UIAlertAction(title: "Show profile", style: .default , handler: {action in
 
 
-   
+            self.navigationController?.popViewController(animated: true)
+
+        }))
+                present(alert, animated : true)
+    }
+
+    
 }
-
- 
-        
-
-    
-    
-
-
