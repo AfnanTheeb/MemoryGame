@@ -117,7 +117,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ihf-pk-kRW">
-                        <barButtonItem key="backBarButtonItem" title="Logout" id="xjB-Qb-Dfu"/>
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="sDw-n8-6qX"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bgImg" destination="VSF-CK-nmI" id="GhQ-fg-6BL"/>
@@ -407,7 +407,9 @@
         <scene sceneID="Xc0-IX-alU">
             <objects>
                 <tabBarController storyboardIdentifier="tabID" id="H7N-EN-8xO" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rUR-Hx-aFc"/>
+                    <navigationItem key="navigationItem" id="rUR-Hx-aFc">
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="R8h-Tc-SIr"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oxi-ph-042">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

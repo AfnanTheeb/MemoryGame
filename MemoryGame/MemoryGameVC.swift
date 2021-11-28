@@ -185,7 +185,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         print("name player \(player?.username)")
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
         setUp()
-        //imgeCardArr.shuffle()
+        imgeCardArr.shuffle()
         }
     
     
