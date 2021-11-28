@@ -37,9 +37,9 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
     var currentSelectedIndex = 0
     var lastSelectedIndex : Int?
     var countMatch : Int = 0
-    var replay : Int = 0
     @IBOutlet weak var timerLable: UILabel!
     
+    @IBOutlet weak var pairsLabel: UILabel!
     
     func setUp(){
         
@@ -134,6 +134,7 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
 
             if (imgeCardArr[lastSelectedIndex!] == imgeCardArr[currentSelectedIndex] && lastSelectedIndex != indexPath.row) {
                 countMatch += 1
+                pairsLabel.text = "Pairs (8/\(countMatch))"
                 print("Matched")
                 // show image cell to player
                 currCellObject.frontImage.isHidden = true
@@ -183,7 +184,6 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         collectionView.dataSource = self
         print("name player \(player?.username)")
         collectionView.register(UINib(nibName: "ImagesCards", bundle: nil), forCellWithReuseIdentifier: "cardID")
-        
         setUp()
         imgeCardArr.shuffle()
         }
@@ -220,27 +220,22 @@ class MemoryGameVC: UIViewController , UICollectionViewDelegate , UICollectionVi
         }
         timerLable.text = ".. GAME OVER .."
         timerLable.textColor = .red
-        timerLable.font = UIFont(name: ".SFUI-Semibold", size: 25)
+        timerLable.font = UIFont(name: ".SFUI-Semibold", size: 21)
         let alert = UIAlertController(title:" Great ", message: "Time  (\(result))", preferredStyle: .alert)
-        if replay == 0 {
         alert.addAction(UIAlertAction(title: "Replay", style: .cancel, handler: {action in
-            self.timer = nil
-            self.timerLable.textColor = .blue
-            self.lastSelectedIndex = nil
-            self.countMatch = 0
-            self.collectionView.isUserInteractionEnabled = true
-            self.collectionView.reloadSections(IndexSet(integer: 0))
-            self.replay = 1
-            self.setUp()
-        }))
-        }
-        alert.addAction(UIAlertAction(title: "Show profile", style: .default , handler: {action in
-
-
+            
             self.navigationController?.popViewController(animated: true)
 
         }))
-                present(alert, animated : true)
+        
+        alert.addAction(UIAlertAction(title: "Show profile", style: .default , handler: {action in
+
+
+            let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "profileID") as! ProfileViewController
+            profileVC.player = self.player
+            self.present(profileVC, animated : true)
+        }))
+        present(alert, animated : true)
     }
 
     

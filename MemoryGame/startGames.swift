@@ -17,6 +17,7 @@ class StartGames: UIViewController {
         super.viewDidLoad()
         print("user login \(player?.username)")
         // Do any additional setup after loading the view.
+//        self.navigationItem.backButtonTitle = "Logout"
     }
     
     func showProfile(){

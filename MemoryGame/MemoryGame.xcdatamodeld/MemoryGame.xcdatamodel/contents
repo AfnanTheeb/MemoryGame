@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Player" representedClassName=".Player" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" customClassName="UIImage"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
         <relationship name="score" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Score" inverseName="ofPlayer" inverseEntity="Score"/>
@@ -11,7 +12,7 @@
         <relationship name="ofPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="score" inverseEntity="Player"/>
     </entity>
     <elements>
-        <element name="Player" positionX="31.9609375" positionY="-162.19921875" width="125.0625" height="103"/>
+        <element name="Player" positionX="31.9609375" positionY="-162.19921875" width="125.0625" height="104"/>
         <element name="Score" positionX="-207" positionY="-54" width="128" height="73"/>
     </elements>
 </model>

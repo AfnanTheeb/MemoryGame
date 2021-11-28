@@ -19,8 +19,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOl-HP-NkC">
                         <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1111" translatesAutoresizingMaskIntoConstraints="NO" id="eMB-Mu-1MC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7DceLgR4szFxwkUbiWvhXdP5THdsdU2F1RDnJM8tvH3CJmkcSws9vMZjH2WJzbrmDER8Er4RpD79TePU6gSCW" translatesAutoresizingMaskIntoConstraints="NO" id="eMB-Mu-1MC">
                         <rect key="frame" x="0.0" y="0.0" width="72" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                 </subviews>
             </view>
@@ -44,6 +46,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="1111" width="300" height="168"/>
+        <image name="7DceLgR4szFxwkUbiWvhXdP5THdsdU2F1RDnJM8tvH3CJmkcSws9vMZjH2WJzbrmDER8Er4RpD79TePU6gSCW" width="758" height="311"/>
     </resources>
 </document>

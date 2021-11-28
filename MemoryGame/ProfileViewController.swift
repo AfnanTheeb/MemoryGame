@@ -77,6 +77,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[.originalImage] as? UIImage{
             imageProfile.image = img
+            player?.image = img
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
         dismiss(animated: true  )
     }
@@ -103,7 +109,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
 //    
         nameLabel.text = player?.username
         emailLabel.text = player?.email
+        imageProfile.image = player?.image
         fetchPlayer()
+        animateTable ()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,6 +179,27 @@ class ProfileViewController: UIViewController, UITableViewDelegate , UITableView
         tableview.reloadData()
         
     }
+    
+    //  add animation for tabelViewCell
+        func animateTable (){
+          tableview.reloadData()
+          let cell = tableview.visibleCells
+          let tableViewCell = tableview.bounds.size.height
+          for item in cell {
+            item.transform = CGAffineTransform(translationX: 0 , y: tableViewCell)
+          }
+          var dalayCounter = 0
+          for item in cell {
+            UIView.animate(withDuration: 1, delay: Double(dalayCounter) * 0.05,usingSpringWithDamping: 0.8 ,initialSpringVelocity: 0 ,options: .curveEaseOut, animations: {item.transform = CGAffineTransform.identity}, completion: nil)
+            dalayCounter += 1
+          }
+        }
+    
+    
+    
+    
+    
+    
 }
 
   
