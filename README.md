@@ -8,7 +8,7 @@
 
 #### usage :
 
-six interfaces:
+##### six interfaces :
 - LoginViewController
 - RegisterViewController
 - MemoryGameVC
