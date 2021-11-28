@@ -17,8 +17,8 @@ ImagesCards
 ProfileViewController
 
 #### Upcoming features :
-- ‏Adding different sections to the memory game such as fruits and animals section and others
-​- Adding different levels in the game
+- Adding different sections to the memory game such as fruits and animals section and others
+- Adding different levels in the game
 - Add API
 
 #### RED :
