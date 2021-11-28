@@ -21,7 +21,7 @@ six interfaces:
 - Adding different levels in the game
 - Add API
 
-#### RED :
+####  Entity Relationship Diagram (ERD) :
 ------------
 
 ![alt text](https://g.top4top.io/p_2158ipx7t1.png)
